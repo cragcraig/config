@@ -12,7 +12,15 @@ Bundle 'gmarik/vundle'
 " My bundles here:
 
 " https://github.com/Valloric/YouCompleteMe
+" ~/.vim/bundle/YouCompleteMe/install.sh
 Bundle 'Valloric/YouCompleteMe'
+
+" Vim session
+" :SaveSession
+" :OpenSession
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
+let g:session_autosave = 'no'
 
 
 filetype plugin indent on     " required!
@@ -48,30 +56,48 @@ set ts=2
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-
 set nowrap
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
 
 " Autocomplete mode
 set wildmode=longest,list,full
 set wildmenu
+set wildignore=*.o,*~,*.pyc
 
-" Remember cursor position between sessions
-function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
-endfunction
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
-augroup resCur
-  autocmd!
-  autocmd BufWinEnter * call ResCur()
-augroup END
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f')<CR>
+vnoremap <silent> # :call VisualSelection('b')<CR>
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
 
 " ^p toggles Paste mode
 " (disables autoindent)
-nnoremap <C-p>p :set invpaste paste?<CR>
-set pastetoggle=<C-p>p
+nnoremap <C-p> :set invpaste paste?<CR>
+set pastetoggle=<C-p>
 set showmode
 
 " Search settings
@@ -127,14 +153,31 @@ function! LongLineHLEnableJava()
  endif
 endfunction
 
-
 command! ToggleLongLine call LongLineHLToggle()
 autocmd BufNewFile,BufRead,BufCreate *.py call LongLineHLEnable()
 autocmd BufNewFile,BufRead,BufCreate *.cc call LongLineHLEnable()
 autocmd BufNewFile,BufRead,BufCreate *.c call LongLineHLEnable()
 autocmd BufNewFile,BufRead,BufCreate *.h call LongLineHLEnable()
 autocmd BufNewFile,BufRead,BufCreate *.sh call LongLineHLEnable()
-autocmd BufNewFile,BufRead,BufCreate *.java call LongLineHLEnableJava()
+
+" Java specific config
+function! JavaConfig()
+  call LongLineEnableJava()
+  set ts=4
+  set tabstop=4
+  set shiftwidth=4
+  set softtabstop=4
+endfunction
+
+autocmd BufNewFile,BufRead,BufCreate *.java call JavaConfig()
+
+" Delete trailing white space on saving Python
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
 
 " Print current file
 command! CurrentFile echo "Currently editing:" bufname("%")
