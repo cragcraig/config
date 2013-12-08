@@ -162,7 +162,7 @@ autocmd BufNewFile,BufRead,BufCreate *.sh call LongLineHLEnable()
 
 " Java specific config
 function! JavaConfig()
-  call LongLineEnableJava()
+  call LongLineHLEnableJava()
   set ts=4
   set tabstop=4
   set shiftwidth=4
