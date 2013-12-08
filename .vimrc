@@ -96,8 +96,8 @@ set viminfo^=%
 
 " ^p toggles Paste mode
 " (disables autoindent)
-nnoremap <C-p> :set invpaste paste?<CR>
-set pastetoggle=<C-p>
+nnoremap <C-v> :set invpaste paste?<CR>
+set pastetoggle=<C-v>
 set showmode
 
 " Search settings
