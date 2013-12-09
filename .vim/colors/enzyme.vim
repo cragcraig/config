@@ -52,7 +52,7 @@ hi link Function		Identifier
 hi link Conditional		Statement
 hi link Repeat			Statement
 hi link Label			Statement
-hi link Operator		Statement
+hi link Operator		Special
 hi link Keyword			Statement
 hi link Exception		Statement
 hi link Include			PreProc

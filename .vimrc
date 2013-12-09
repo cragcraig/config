@@ -42,6 +42,8 @@ syntax on
 set background=dark
 colorscheme enzyme
 
+autocmd! BufRead,BufNewFile,BufEnter *.{c,cpp,cc,h,javascript,java,py} call CSyntaxAfter()
+
 " Mappings
 map <CR> o<Esc>
 inoremap jj <Esc>
