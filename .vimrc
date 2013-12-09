@@ -22,6 +22,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 let g:session_autosave = 'no'
 
+Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on     " required!
 "
@@ -38,6 +39,7 @@ filetype plugin indent on     " required!
 
 " Syntax highlighting
 syntax on
+set background=dark
 colorscheme enzyme
 
 " Mappings
@@ -69,8 +71,8 @@ set wildmenu
 set wildignore=*.o,*~,*.pyc
 
 " Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+" set backspace=eol,start,indent
+" set whichwrap+=<,>,h,l
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
@@ -94,7 +96,7 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-" ^p toggles Paste mode
+" ^v toggles Paste mode
 " (disables autoindent)
 nnoremap <C-v> :set invpaste paste?<CR>
 set pastetoggle=<C-v>
