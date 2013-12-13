@@ -1,0 +1,13 @@
+"\C-w": forward-word
+"\C-b": backward-word
+
+set input-meta on
+set show-all-if-ambiguous off
+
+Control-p:history-search-backward
+Control-n:history-search-forward
+
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+"\e[C":forward-char
+"\e[D":backward-char
