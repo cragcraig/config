@@ -15,6 +15,9 @@ Bundle 'gmarik/vundle'
 " ~/.vim/bundle/YouCompleteMe/install.sh
 Bundle 'Valloric/YouCompleteMe'
 
+" tmux/vim navigation integration (requires tmux 1.8)
+Bundle 'christoomey/vim-tmux-navigator'
+
 " Vim session
 " :SaveSession
 " :OpenSession
