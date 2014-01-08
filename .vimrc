@@ -17,6 +17,9 @@ Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'christoomey/vim-tmux-navigator'
 
+" tagbar
+Bundle 'majutsushi/tagbar'
+
 " Vim session
 " :SaveSession
 " :OpenSession
@@ -63,6 +66,9 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set nowrap
+
+let g:session_autoload = 'no'
+let g:tagbar_left = 1
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
