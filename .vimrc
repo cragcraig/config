@@ -15,7 +15,6 @@ Bundle 'gmarik/vundle'
 " ~/.vim/bundle/YouCompleteMe/install.sh
 Bundle 'Valloric/YouCompleteMe'
 
-" tmux/vim navigation integration (requires tmux 1.8)
 Bundle 'christoomey/vim-tmux-navigator'
 
 " Vim session
@@ -178,13 +177,28 @@ endfunction
 
 autocmd BufNewFile,BufRead,BufCreate *.java call JavaConfig()
 
-" Delete trailing white space on saving Python
+" Go specific config
+function! GoConfig()
+  set filetype=go
+  set ts=4
+  set tabstop=4
+  set shiftwidth=4
+  set softtabstop=4
+endfunction
+
+autocmd BufNewFile,BufRead,BufCreate *.go call GoConfig()
+
+" Delete trailing white space on saving
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.java :call DeleteTrailingWS()
+autocmd BufWrite *.cc :call DeleteTrailingWS()
+autocmd BufWrite *.c :call DeleteTrailingWS()
+autocmd BufWrite *.go :call DeleteTrailingWS()
 
 " Print current file
 command! CurrentFile echo "Currently editing:" bufname("%")
