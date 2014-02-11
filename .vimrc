@@ -17,8 +17,11 @@ Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'christoomey/vim-tmux-navigator'
 
-" tagbar
+" Tagbar
 Bundle 'majutsushi/tagbar'
+
+" NERDTree
+Bundle 'scrooloose/nerdtree'
 
 " Vim session
 " :SaveSession
@@ -53,6 +56,10 @@ autocmd! BufRead,BufNewFile,BufEnter *.{c,cpp,cc,h,javascript,java,py} call CSyn
 map <CR> o<Esc>
 inoremap jj <Esc>
 inoremap jk <Esc>
+nnoremap cy "*y
+nnoremap cp "*p
+vnoremap cy "*y
+vnoremap cp "*p
 
 " General settings
 set nocompatible
@@ -66,6 +73,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set nowrap
+set tags=./tags;
 
 let g:session_autoload = 'no'
 let g:tagbar_left = 1
@@ -128,6 +136,8 @@ noremap <silent> <C-k> :wincmd k<CR>
 noremap <silent> <C-j> :wincmd j<CR>
 noremap <silent> <C-i> :tabp<CR>
 noremap <silent> <C-o> :tabn<CR>
+
+noremap <silent> <C-g> <C-]>
 
 " Handle common typos
 command! Q q
