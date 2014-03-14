@@ -20,6 +20,9 @@ Bundle 'christoomey/vim-tmux-navigator'
 " Tagbar
 Bundle 'majutsushi/tagbar'
 
+" easymotion
+Bundle 'Lokaltog/vim-easymotion'
+
 " NERDTree
 Bundle 'scrooloose/nerdtree'
 
@@ -53,6 +56,7 @@ colorscheme enzyme
 autocmd! BufRead,BufNewFile,BufEnter *.{c,cpp,cc,h,javascript,java,py} call CSyntaxAfter()
 
 " Mappings
+let mapleader=","
 map <CR> o<Esc>
 inoremap jj <Esc>
 inoremap jk <Esc>
@@ -138,6 +142,8 @@ noremap <silent> <C-i> :tabp<CR>
 noremap <silent> <C-o> :tabn<CR>
 
 noremap <silent> <C-g> <C-]>
+
+nmap s <Plug>(easymotion-s)
 
 " Handle common typos
 command! Q q
