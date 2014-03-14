@@ -23,6 +23,9 @@ Bundle 'majutsushi/tagbar'
 " easymotion
 Bundle 'Lokaltog/vim-easymotion'
 
+" ctrl-p
+Bundle 'kien/ctrlp.vim'
+
 " NERDTree
 Bundle 'scrooloose/nerdtree'
 
@@ -143,7 +146,13 @@ noremap <silent> <C-o> :tabn<CR>
 
 noremap <silent> <C-g> <C-]>
 
-nmap s <Plug>(easymotion-s)
+" Plugin Mappings
+nmap f <Plug>(easymotion-s)
+let g:ctrlp_map = '<c-f>'
+
+" Ctrl-P settings
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 " Handle common typos
 command! Q q
