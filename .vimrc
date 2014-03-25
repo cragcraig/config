@@ -29,6 +29,9 @@ Bundle 'kien/ctrlp.vim'
 " NERDTree
 Bundle 'scrooloose/nerdtree'
 
+" Git Gutter
+Bundle 'airblade/vim-gitgutter'
+
 " Vim session
 " :SaveSession
 " :OpenSession
