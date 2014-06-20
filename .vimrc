@@ -2,44 +2,44 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My bundles here:
 
 " https://github.com/Valloric/YouCompleteMe
 " ~/.vim/bundle/YouCompleteMe/install.sh
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Tagbar
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 
 " easymotion
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
 " ctrl-p
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 " NERDTree
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
 " Git Gutter
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
 " Vim session
 " :SaveSession
 " :OpenSession
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-session'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 let g:session_autosave = 'no'
 
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 
 filetype plugin indent on     " required!
 "
