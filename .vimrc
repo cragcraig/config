@@ -2,44 +2,44 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Plugin 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 
 " My bundles here:
 
 " https://github.com/Valloric/YouCompleteMe
 " ~/.vim/bundle/YouCompleteMe/install.sh
-Plugin 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 
-Plugin 'christoomey/vim-tmux-navigator'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " Tagbar
-Plugin 'majutsushi/tagbar'
+Bundle 'majutsushi/tagbar'
 
 " easymotion
-Plugin 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-easymotion'
 
 " ctrl-p
-Plugin 'kien/ctrlp.vim'
+Bundle 'kien/ctrlp.vim'
 
 " NERDTree
-Plugin 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
 
 " Git Gutter
-Plugin 'airblade/vim-gitgutter'
+Bundle 'airblade/vim-gitgutter'
 
 " Vim session
 " :SaveSession
 " :OpenSession
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
 let g:session_autosave = 'no'
 
-Plugin 'altercation/vim-colors-solarized'
+Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on     " required!
 "
@@ -85,6 +85,7 @@ set softtabstop=2
 set nowrap
 set tags=./tags;
 
+let g:ycm_add_preview_to_completeopt = 1
 let g:session_autoload = 'no'
 let g:tagbar_left = 1
 
@@ -149,6 +150,9 @@ noremap <silent> <C-o> :tabn<CR>
 
 noremap <silent> <C-g> <C-]>
 
+" Always yank to the system clipboard
+set clipboard=unnamed,unnamedplus
+
 " Plugin Mappings
 nmap f <Plug>(easymotion-s)
 let g:ctrlp_map = '<c-f>'
@@ -199,17 +203,19 @@ autocmd BufNewFile,BufRead,BufCreate *.cc call LongLineHLEnable()
 autocmd BufNewFile,BufRead,BufCreate *.c call LongLineHLEnable()
 autocmd BufNewFile,BufRead,BufCreate *.h call LongLineHLEnable()
 autocmd BufNewFile,BufRead,BufCreate *.sh call LongLineHLEnable()
+autocmd BufNewFile,BufRead,BufCreate *.js call LongLineHLEnable()
 
 " Java specific config
 function! JavaConfig()
   call LongLineHLEnableJava()
-  set ts=4
-  set tabstop=4
-  set shiftwidth=4
-  set softtabstop=4
+  set ts=2
+  set tabstop=2
+  set shiftwidth=2
+  set softtabstop=2
 endfunction
 
 autocmd BufNewFile,BufRead,BufCreate *.java call JavaConfig()
+autocmd BufNewFile,BufRead,BufCreate *.py call JavaConfig()
 
 " Go specific config
 function! GoConfig()
@@ -233,6 +239,7 @@ autocmd BufWrite *.java :call DeleteTrailingWS()
 autocmd BufWrite *.cc :call DeleteTrailingWS()
 autocmd BufWrite *.c :call DeleteTrailingWS()
 autocmd BufWrite *.go :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
 
 " Print current file
 command! CurrentFile echo "Currently editing:" bufname("%")
