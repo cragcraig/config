@@ -38,6 +38,7 @@ Plugin 'fatih/vim-go'
 " neocomplete
 Plugin 'Shougo/neocomplete'
 let g:neocomplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Vim session
 " :SaveSession
