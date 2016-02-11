@@ -164,7 +164,7 @@ noremap <silent> <C-g> <C-]>
 set clipboard=unnamed,unnamedplus
 
 " Plugin Mappings
-nmap f <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-s)
 let g:ctrlp_map = '<c-f>'
 
 " Ctrl-P settings
