@@ -151,12 +151,13 @@ set hlsearch
 cabbr <expr> %% expand('%:p:h')
 
 " Tabs and windows
-noremap <silent> <C-h> :wincmd h<CR>
-noremap <silent> <C-l> :wincmd l<CR>
-noremap <silent> <C-k> :wincmd k<CR>
-noremap <silent> <C-j> :wincmd j<CR>
-noremap <silent> <C-i> :tabp<CR>
-noremap <silent> <C-o> :tabn<CR>
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-o> :TmuxNavigatePrevious<cr>
 
 noremap <silent> <C-g> <C-]>
 
