@@ -1,6 +1,7 @@
 #!/bin/sh
 . ~/.profile
 
+xscreensaver&
 google-chrome&
 gnome-terminal&
 
@@ -12,4 +13,4 @@ xmodmap -e "keysym Caps_Lock = Escape"
 # Set mouse acceleration
 xset m 5/2 0
 
-xmonad
+exec xmonad
