@@ -11,5 +11,5 @@ main = xmonad $ defaultConfig
          , terminal = "gnome-terminal"
          , focusedBorderColor = "#000000"
          }  `additionalKeys`
-        [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
+        [ ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
         ]
